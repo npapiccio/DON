@@ -1,0 +1,8 @@
+Database name :	db667761682
+Host name :	db667761682.db.1and1.com
+Port :	3306
+User name :	dbo667761682
+Description :	don
+Version :	MySQL5.5
+Status :	setup started
+password : low priority pass
