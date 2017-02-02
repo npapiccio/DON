@@ -1,0 +1,337 @@
+.nk-blog-post {
+    margin-bottom: 65px;
+
+    .nk-blog-isotope & {
+        margin-bottom: 40px;
+    }
+}
+.nk-post-title {
+    margin-bottom: 25px;
+}
+.nk-post-title > a {
+    text-decoration: none;
+    color: inherit;
+    transition: .3s opacity;
+
+    &:hover,
+    &.hover {
+        opacity: 0.8;
+    }
+}
+
+.nk-post-category {
+    display: block;
+    font-size: 0.9rem;
+    font-style: italic;
+    opacity: 0.8;
+    margin-bottom: 5px;
+
+    > a {
+        text-decoration: none;
+    }
+}
+
+.nk-post-meta {
+    position: relative;
+    display: block;
+    margin-top: 25px;
+    padding-bottom: 25px;
+    font-size: 0.9rem;
+    font-style: italic;
+    z-index: 1;
+
+    .nk-post-title + & {
+        margin-top: -15px;
+    }
+
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border-bottom: 1px solid;
+        border-bottom: 1px dotted;
+        opacity: 0.3;
+    }
+
+    &.nk-post-meta-top {
+        margin-top: 0;
+
+        &:after {
+            content: none;
+        }
+    }
+}
+.nk-post-meta-right {
+    width: 50%;
+    float: right;
+    text-align: right;
+    font-style: normal;
+}
+.nk-post-comments-count {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    vertical-align: text-top;
+    font-size: 0.7rem;
+    min-width: 20px;
+    padding: 0 8px;
+    height: 18px;
+    line-height: 18px;
+    background-color: $color_dark_4;
+    margin: 0 13px;
+    opacity: 0.8;
+    transition: .3s opacity;
+
+    &:hover,
+    &.hover {
+        opacity: 1;
+    }
+
+    &,
+    &:focus,
+    &:hover,
+    &:active {
+        text-decoration: none;
+        color: #fff;
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        display: inline-block;
+        bottom: -4px;
+        left: 50%;
+        width: 0;
+        height: 0;
+        transform: translateX(-50%);
+        vertical-align: middle;
+        border-top: 4px solid $color_dark_4;
+        border-right: 4px solid transparent;
+        border-left: 4px solid transparent;
+    }
+}
+
+.nk-post-date {
+    width: 50%;
+    opacity: 0.8;
+
+    .nk-header-title & {
+        font-size: 0.9rem;
+        opacity: 1;
+        width: 100%;
+        text-align: center;
+        font-style: italic;
+    }
+    .nk-header-text & {
+        margin-top: 20px;
+    }
+
+    .nk-post-by {
+        font-weight: bold;
+        margin-left: 5px;
+
+        > a {
+            text-decoration: none;
+        }
+    }
+
+    .nk-post-category {
+        display: inline-block;
+        margin-left: 5px;
+        font-weight: bold;
+        font-size: 1em;
+        font-style: inherit;
+        opacity: 1;
+        margin-bottom: 0;
+    }
+}
+
+.nk-post-text {
+    margin: 25px 0;
+
+    &:after,
+    &:before {
+        content: '';
+        display: table;
+        clear: both;
+    }
+
+    .pull-right,
+    .pull-left {
+        margin: 15px;
+    }
+    .pull-right {
+        margin-right: 0;
+    }
+    .pull-left {
+        margin-left: 0;
+    }
+
+    > p:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.nk-post-continue {
+    display: block;
+    text-align: center;
+    margin: 25px 0;
+
+    > a {
+        display: inline-block;
+        text-decoration: none;
+        font-style: italic;
+
+        > span {
+            margin-left: 5px;
+        }
+    }
+}
+
+.nk-post-author {
+    background-color: $color_gray_2;
+    text-align: center;
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 40px;
+
+    .nk-post-author-photo {
+        img {
+            width: 100px;
+            border-radius: 50px;
+        }
+    }
+
+    .nk-post-author-info {
+        width: 100%;
+    }
+
+    .nk-post-author-name {
+        text-decoration: none;
+        margin: 0;
+
+        > a {
+            color: inherit;
+            transition: .3s opacity;
+            text-decoration: none;
+
+            &:hover,
+            &.hover {
+                opacity: 0.8;
+            }
+        }
+    }
+}
+
+// comments
+$comments_avatar_width: 50px;
+.nk-comments {
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+    .nk-comment {
+        &:after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+
+        // review title
+        h4 {
+            margin-top: 25px;
+        }
+
+        .nk-comment {
+            margin-left: 55px;
+        }
+
+        .nk-comment,
+        + .nk-comment {
+            padding-top: 40px;
+            clear: both;
+        }
+
+        .nk-comment-avatar {
+            position: relative;
+            float: left;
+            margin-right: 20px;
+            z-index: 1;
+
+            img {
+                width: $comments_avatar_width;
+                border-radius: $comments_avatar_width / 2;
+            }
+        }
+
+        .nk-comment-name {
+            display: inline-block;
+            margin-bottom: 5px;
+            margin-top: 5px;
+        }
+
+        // comment meta
+        .nk-comment-meta {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+            min-height: 70px;
+
+            &:after {
+                content: '';
+                display: table;
+                clear: right;
+            }
+            &:before {
+                content: '';
+                display: block;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                border-bottom: 1px solid;
+                border-bottom: 1px dotted;
+                opacity: 0.3;
+            }
+
+            .nk-comment-date,
+            .nk-comment-reply {
+                font-size: 0.9rem;
+                font-style: italic;
+                opacity: 0.8;
+            }
+            .nk-comment-reply {
+                float: right;
+                margin-left: 15px;
+            }
+
+            a {
+                color: inherit;
+                transition: .3s opacity;
+                text-decoration: none;
+
+                &:hover,
+                &.hover {
+                    opacity: 0.8;
+                }
+            }
+        }
+    }
+}
+
+
+/* Audio post */
+.nk-post-audio {
+    position: relative;
+
+    > div {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        width: auto;
+    }
+}

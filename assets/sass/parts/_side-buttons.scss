@@ -1,0 +1,100 @@
+.nk-side-buttons {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding-right: 20px;
+    padding-left: 15px;
+    padding-top: 25px;
+    padding-bottom: 20px;
+    transform: translateX(70px) translateY(60%);
+    transition: .2s transform ease-in-out, .3s margin-bottom;
+    will-change: transform;
+    z-index: 100;
+
+    &.nk-side-buttons-left {
+        right: auto;
+        left: 0;
+        padding-right: 15px;
+        padding-left: 20px;
+    }
+
+    &.nk-side-buttons-left,
+    &.nk-side-buttons-show-scroll-top {
+        transform: translateX(0) translateY(60%);
+    }
+
+    // prevent collision with audio player
+    .nk-audio-player-main:hover ~ &,
+    .nk-audio-player-main.nk-audio-player-pin ~ & {
+        margin-bottom: $audio_player_height;
+    }
+    @media #{$media_xs} {
+        .nk-audio-player-main:hover ~ & {
+            margin-bottom: 0;
+        }
+        .nk-audio-player-main.nk-audio-player-pin ~ &,
+        .nk-audio-player-main.nk-audio-player-pin:hover ~ & {
+            margin-bottom: $audio_player_mobile_height;
+        }
+    }
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        > li {
+            display: inline-block;
+            text-align: center;
+
+            + li {
+                margin-left: 15px;
+            }
+
+            > a,
+            > span {
+                display: block;
+                font-size: 20px;
+                padding: 10px;
+                background-color: darken($color_dark_1, 5%);
+                color: rgba(#fff, 0.7);
+                transition: .2s color ease-in-out;
+                will-change: color;
+                box-shadow: 0 2px 20px 0 rgba(#000, 0.08);
+
+                > span {
+                    display: block;
+                    width: 30px;
+                    height: 30px;
+                    line-height: 30px;
+                    text-align: center;
+                }
+
+                &:hover {
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    // show icons on hover
+    &.nk-side-buttons-visible,
+    &:hover,
+    &.hover {
+        transform: translateX(70px) translateY(0) translate3d(0,0,0);
+    }
+    @media #{$media_xs} {
+        transform: translateX(70px) translateY(0) translate3d(0,0,0);
+    }
+    &.nk-side-buttons-left,
+    &.nk-side-buttons-show-scroll-top {
+        &.nk-side-buttons-visible,
+        &:hover,
+        &.hover {
+            transform: translateX(0) translateY(0) translate3d(0,0,0);
+        }
+        @media #{$media_xs} {
+            transform: translateX(0) translateY(0) translate3d(0,0,0);
+        }
+    }
+}

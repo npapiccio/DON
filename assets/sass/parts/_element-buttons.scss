@@ -1,0 +1,678 @@
+
+// default buttons
+.nk-btn {
+    display: inline-block;
+    border: 0;
+    padding: 12px 35px;
+    font-size: 1em;
+    font-weight: 400;
+    line-height: 1.2;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    transition: .2s all;
+
+    &,
+    &:hover,
+    &.hover,
+    &:active,
+    &.active,
+    &:focus {
+        text-decoration: none;
+        color: #fff;
+    }
+
+    // outline fix
+    &.nk-btn-outline {
+        padding-top: 11px;
+        padding-bottom: 11px;
+    }
+}
+
+// sizes
+.nk-btn-xs {
+    font-size: 0.9rem;
+    padding: 8px 26px;
+
+    // outline fix
+    &.nk-btn-outline {
+        padding-top: 7px;
+        padding-bottom: 7px;
+    }
+}
+.nk-btn-sm {
+    padding: 10px 29px;
+
+    // outline fix
+    &.nk-btn-outline {
+        padding-top: 9px;
+        padding-bottom: 9px;
+    }
+}
+.nk-btn-lg {
+    padding: 14px 41px;
+
+    // outline fix
+    &.nk-btn-outline {
+        padding-top: 13px;
+        padding-bottom: 13px;
+    }
+}
+.nk-btn-x2 {
+    font-size: 1.1rem;
+    padding: 16px 45px;
+
+    // outline fix
+    &.nk-btn-outline {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+}
+.nk-btn-x3 {
+    font-size: 1.2rem;
+    padding: 20px 55px;
+
+    // outline fix
+    &.nk-btn-outline {
+        padding-top: 19px;
+        padding-bottom: 19px;
+    }
+}
+.nk-btn-x4 {
+    font-size: 1.3rem;
+    padding: 22px 65px;
+
+    // outline fix
+    &.nk-btn-outline {
+        padding-top: 21px;
+        padding-bottom: 21px;
+    }
+}
+
+// colors
+@each $name, $color in $colors {
+    .nk-btn-color-#{$name} {
+        background-color: $color;
+        border-color: darken($color, 12%);
+        border-style: solid;
+
+        @if $name == 'white' {
+            &,
+            &:hover,
+            &.hover,
+            &:active,
+            &.active,
+            &:focus {
+                color: inherit;
+            }
+        }
+
+        &:hover,
+        &.hover {
+            background-color: darken($color, 6%);
+            border-color: darken($color, 18%);
+        }
+        &:active,
+        &.active {
+            background-color: darken($color, 10%);
+            border-color: darken($color, 22%);
+        }
+
+        &.nk-btn-outline {
+            color: $color;
+
+            &:hover,
+            &.hover {
+                color: darken($color, 10%);
+            }
+            &:active,
+            &.active {
+                color: darken($color, 20%);
+            }
+        }
+    }
+}
+@each $name, $color in $colors {
+    .nk-btn-color-hover-#{$name} {
+        &:hover,
+        &.hover {
+            background-color: $color;
+            border-color: darken($color, 12%);
+            border-style: solid;
+        }
+
+        @if $name == 'white' {
+            &:hover,
+            &.hover,
+            &:active,
+            &.active,
+            &:focus {
+                color: inherit;
+            }
+        }
+
+        &:active,
+        &.active {
+            background-color: darken($color, 10%);
+            border-color: darken($color, 22%);
+        }
+
+        &.nk-btn-outline {
+            &:hover,
+            &.hover {
+                color: $color;
+            }
+
+            &:active,
+            &.active {
+                color: darken($color, 20%);
+            }
+        }
+    }
+}
+
+// outline
+.nk-btn-outline {
+    border-width: 1px;
+
+    &,
+    &:hover,
+    &.hover,
+    &:active,
+    &.active,
+    &:focus {
+        background-color: transparent;
+        color: inherit;
+    }
+}
+
+// rounded
+.nk-btn-rounded {
+    border-radius: 5px;
+}
+
+// circle
+.nk-btn-circle,
+.nk-btn-circle-hover:hover {
+    border-radius: 21px;
+    &.nk-btn-xs {
+        border-radius: 16px;
+    }
+    &.nk-btn-sm {
+        border-radius: 19px;
+    }
+    &.nk-btn-lg {
+        border-radius: 23px;
+    }
+    &.nk-btn-x2 {
+        border-radius: 26px;
+    }
+    &.nk-btn-x3 {
+        border-radius: 30.5px;
+    }
+    &.nk-btn-x4 {
+        border-radius: 34px;
+    }
+}
+
+// 3d
+.nk-btn-3d {
+    font-weight: bold;
+    border-width: 1px;
+    border-bottom-width: 4px;
+    text-shadow: 1px 1px 2px rgba($color_dark_1, 0.8);
+    box-shadow: 0 3px 20px 0 rgba($color_dark_1, 0.4);
+
+    &.nk-btn-sm,
+    &.nk-btn-xs {
+        border-bottom-width: 3px;
+    }
+    &.nk-btn-lg,
+    &.nk-btn-x2 {
+        border-bottom-width: 5px;
+    }
+    &.nk-btn-x3 {
+        border-bottom-width: 6px;
+    }
+    &.nk-btn-x4 {
+        border-bottom-width: 7px;
+    }
+}
+
+// block
+.nk-btn-block {
+    display: block;
+    width: 100%;
+}
+
+
+// icons
+.nk-btn > .icon {
+    margin-right: 3px;
+}
+.nk-btn > span + .icon {
+    margin-left: 3px;
+    margin-right: 0;
+}
+.nk-btn-effect-1-top,
+.nk-btn-effect-1-bottom,
+.nk-btn-effect-1-left,
+.nk-btn-effect-1-right,
+.nk-btn-effect-2-left,
+.nk-btn-effect-2-right {
+    // hide icons and add some classes
+    > .icon {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        margin: 0;
+
+        > i,
+        > span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+}
+
+
+// effects
+
+// slide icon on hover
+$btn-effect-1-distation: 300%;
+.nk-btn-effect-1-top,
+.nk-btn-effect-1-bottom,
+.nk-btn-effect-1-left,
+.nk-btn-effect-1-right {
+    position: relative;
+    overflow: hidden;
+
+    > span {
+        display: inline-block;
+        transform: translateY(0) translateX(0);
+        transition: .3s transform;
+        will-change: transform;
+    }
+    > .icon {
+        display: block;
+    }
+
+    &:hover,
+    &.hover {
+        > .icon {
+            transform: translateY(0) translateX(0);
+        }
+    }
+}
+.nk-btn-effect-1-top {
+    > .icon {
+        transform: translateY($btn-effect-1-distation);
+    }
+
+    &:hover,
+    &.hover {
+        > span {
+            transform: translateY(-$btn-effect-1-distation);
+        }
+    }
+}
+.nk-btn-effect-1-bottom {
+    > .icon {
+        transform: translateY(-$btn-effect-1-distation);
+    }
+
+    &:hover,
+    &.hover {
+        > span {
+            transform: translateY($btn-effect-1-distation);
+        }
+    }
+}
+.nk-btn-effect-1-left {
+    > .icon {
+        transform: translateX($btn-effect-1-distation);
+    }
+
+    &:hover,
+    &.hover {
+        > span {
+            transform: translateX(-$btn-effect-1-distation);
+        }
+    }
+}
+.nk-btn-effect-1-right {
+    > .icon {
+        transform: translateX(-$btn-effect-1-distation);
+    }
+
+    &:hover,
+    &.hover {
+        > span {
+            transform: translateX($btn-effect-1-distation);
+        }
+    }
+}
+
+// show icon on hover
+.nk-btn-effect-2-left,
+.nk-btn-effect-2-right {
+    position: relative;
+    overflow: hidden;
+
+    > span {
+        display: inline-block;
+        transform: translateY(0) translateX(0);
+        transition: .3s transform;
+        will-change: transform;
+    }
+    > .icon {
+        display: block;
+        width: 50px;
+    }
+    &.nk-btn-xs > .icon {
+        width: 40px;
+    }
+    &.nk-btn-sm > .icon {
+        width: 45px;
+    }
+    &.nk-btn-lg > .icon {
+        width: 55px;
+    }
+    &.nk-btn-x2 > .icon {
+        width: 60px;
+    }
+    &.nk-btn-x3 > .icon {
+        width: 65px;
+    }
+    &.nk-btn-x4 > .icon {
+        width: 75px;
+    }
+
+    &:hover,
+    &.hover {
+        > .icon {
+            transform: translateY(0) translateX(0);
+        }
+    }
+}
+.nk-btn-effect-2-left {
+    > .icon {
+        transform: translateX(-100%);
+    }
+
+    &:hover,
+    &.hover {
+        > span {
+            transform: translateX(10px);
+        }
+        > .icon {
+            transform: translateX(0);
+        }
+    }
+}
+.nk-btn-effect-2-right {
+    > .icon {
+        left: auto;
+        right: 0;
+        transform: translateX(100%);
+    }
+
+    &:hover,
+    &.hover {
+        > span {
+            transform: translateX(-10px);
+        }
+        > .icon {
+            transform: translateX(0);
+        }
+    }
+}
+
+
+// scaled dark background
+.nk-btn-effect-3-left,
+.nk-btn-effect-3-right {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+
+    .nk-btn-effect-bg {
+        position: absolute;
+        transition: .3s;
+        width: 0;
+        bottom: 0;
+        background-color: $color_dark_2;
+        transform: skewX(15deg) ;
+        height: 120%;
+        z-index: -1;
+    }
+
+    &:hover .nk-btn-effect-bg,
+    &.hover .nk-btn-effect-bg {
+        width: 120%;
+    }
+
+    &:hover,
+    &.hover {
+        color: #fff !important;
+    }
+}
+.nk-btn-effect-3-left .nk-btn-effect-bg {
+    left: -10%;
+}
+.nk-btn-effect-3-right .nk-btn-effect-bg {
+    right: -10%;
+}
+
+
+// translate dark background
+.nk-btn-effect-4-top,
+.nk-btn-effect-4-bottom,
+.nk-btn-effect-4-left,
+.nk-btn-effect-4-right {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+
+    .nk-btn-effect-bg {
+        position: absolute;
+        transition: .3s;
+        height: 0;
+        width: 0;
+        background-color: $color_dark_2;
+        transform: translate3d(0,0,0);
+        z-index: -1;
+    }
+
+    &:hover,
+    &.hover {
+        color: #fff !important;
+    }
+}
+.nk-btn-effect-4-top,
+.nk-btn-effect-4-bottom {
+    .nk-btn-effect-bg {
+        left: 0;
+        width: 100%;
+    }
+
+    &:hover .nk-btn-effect-bg,
+    &.hover .nk-btn-effect-bg {
+        height: 100%;
+    }
+}
+.nk-btn-effect-4-top .nk-btn-effect-bg {
+    top: 0;
+}
+.nk-btn-effect-4-bottom .nk-btn-effect-bg {
+    bottom: 0;
+}
+
+.nk-btn-effect-4-right,
+.nk-btn-effect-4-left {
+    .nk-btn-effect-bg {
+        top: 0;
+        height: 100%;
+    }
+
+    &:hover .nk-btn-effect-bg,
+    &.hover .nk-btn-effect-bg {
+        width: 100%;
+    }
+}
+.nk-btn-effect-4-left .nk-btn-effect-bg {
+    left: 0;
+}
+.nk-btn-effect-4-right .nk-btn-effect-bg {
+    right: 0;
+}
+
+
+// blur skewed line
+.nk-btn-effect-5-right,
+.nk-btn-effect-5-left {
+    position: relative;
+    overflow: hidden;
+
+    &:before,
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        height: 100%;
+        top: 0;
+    }
+    &:before {
+        background: rgba(255,255,255,0.5);
+        width: 40%;
+        opacity: .5;
+        filter: blur(30px);
+    }
+    &:after {
+        background: rgba(255,255,255,0.2);
+        width: 20%;
+        opacity: 0;
+        filter: blur(5px);
+    }
+    &:hover,
+    &.hover {
+        &:before {
+            opacity: 0.6;
+            transition: .7s;
+            will-change: transform;
+        }
+        &:after{
+            opacity: 1;
+            transition: .7s;
+            will-change: transform;
+        }
+    }
+}
+.nk-btn-effect-5-left {
+    &:before,
+    &:after {
+        left: 0;
+        transform: translateX(-100px)  skewX(-15deg);
+    }
+    &:after {
+        left: 20%;
+    }
+    &:hover,
+    &.hover {
+        &:before {
+            transform: translateX(900%)  skewX(-15deg);
+        }
+        &:after{
+            transform: translateX(900%) skewX(-15deg);
+        }
+    }
+}
+.nk-btn-effect-5-right {
+    &:before,
+    &:after {
+        right: 0;
+        transform: translateX(100px)  skewX(15deg);
+    }
+    &:after {
+        right: 20%;
+    }
+    &:hover,
+    &.hover {
+        &:before {
+            transform: translateX(-900%)  skewX(15deg);
+        }
+        &:after{
+            transform: translateX(-900%) skewX(15deg);
+        }
+    }
+}
+
+
+// background from center
+.nk-btn-effect-6-v,
+.nk-btn-effect-6-h,
+.nk-btn-effect-7-v,
+.nk-btn-effect-7-h {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+
+    .nk-btn-effect-bg {
+        position: absolute;
+        transition: .3s;
+        background-color: $color_dark_2;
+        transform: scale(0,0);
+        z-index: -1;
+        will-change: transform;
+    }
+
+    &:hover,
+    &.hover {
+        .nk-btn-effect-bg {
+            transform: scale(1);
+        }
+    }
+}
+.nk-btn-effect-6-v .nk-btn-effect-bg,
+.nk-btn-effect-7-v .nk-btn-effect-bg {
+    left: 0;
+    right: 0;
+    top: 7px;
+    bottom: 7px;
+    transform: scale(1,0);
+}
+.nk-btn-effect-6-h .nk-btn-effect-bg,
+.nk-btn-effect-7-h .nk-btn-effect-bg {
+    left: 7px;
+    right: 7px;
+    top: 0;
+    bottom: 0;
+    transform: scale(0,1);
+}
+.nk-btn-effect-7-v,
+.nk-btn-effect-7-h {
+    &:hover .nk-btn-effect-bg,
+    &.hover .nk-btn-effect-bg {
+        opacity: 1;
+    }
+    .nk-btn-effect-bg {
+        opacity: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+}
+.nk-btn-effect-7-v .nk-btn-effect-bg {
+    transform: scale(1,0.5);
+}
+.nk-btn-effect-7-h .nk-btn-effect-bg {
+    transform: scale(0.5,1);
+}

@@ -1,0 +1,97 @@
+/* Link Effect 1 (rotate all letters) */
+.link-effect-1 {
+    > span {
+        display: inline-block;
+        position: relative;
+        transform: perspective(1000px) rotateY(0deg);
+        transition: transform 0.3s;
+        will-change: transform;
+    }
+    > span.active {
+        transform: perspective(1000px) rotateY(360deg);
+    }
+}
+
+/* Link Effect 2 and 3 (color for letters from left to right and from top to bottom) */
+.link-effect-2,
+.link-effect-3 {
+    > span {
+        display: inline-block;
+        vertical-align: middle;
+        position: relative;
+        overflow: hidden;
+        color: $color_main_1;
+    }
+    .link-effect-shade {
+        position: absolute;
+        overflow: hidden;
+        white-space: nowrap;
+        left: 0;
+        top: 0;
+        color: lighten($color_main_1, 10%);
+        width: 0%;
+        z-index: 2;
+        transition: width 0.3s;
+        will-change: width;
+    }
+    &:hover .link-effect-shade {
+        width: 100%;
+    }
+}
+.link-effect-3 {
+    .link-effect-shade {
+        width: auto;
+        height: 0%;
+        transition: height 0.3s;
+        will-change: height;
+    }
+    &:hover .link-effect-shade {
+        width: auto;
+        height: 100%;
+    }
+}
+
+// link effects for navbar
+.nk-navbar {
+    // hover effects
+    .dropdown > li > .link-effect-2,
+    .dropdown > li > .link-effect-3 {
+        opacity: 1;
+    }
+    .link-effect-2 > span,
+    .link-effect-3 > span {
+        color: inherit;
+    }
+    .dropdown .link-effect-2,
+    .dropdown .link-effect-3 {
+        color: rgba(#fff, 0.7);
+    }
+    .link-effect-2,
+    .link-effect-3,
+    .link-effect-2 .link-effect-shade,
+    .link-effect-3 .link-effect-shade,
+    .active > .link-effect-2,
+    .active > .link-effect-3 {
+        color: #fff;
+    }
+    .active > .link-effect-2 .link-effect-shade {
+        width: 100%;
+    }
+    .active > .link-effect-3 .link-effect-shade {
+        height: 100%;
+    }
+}
+.nk-navbar-light {
+    .dropdown .link-effect-2,
+    .dropdown .link-effect-3 {
+        color: rgba($color_dark_4, 0.85);
+    }
+    .link-effect-2,
+    .link-effect-3,
+    .link-effect-2 .link-effect-shade,
+    .link-effect-3 .link-effect-shade,
+    .active > .link-effect-2,
+    .active > .link-effect-3 {
+        color: $color_dark_4;
+    }
+}
